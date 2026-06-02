@@ -1,0 +1,147 @@
+name: Code Compliance
+
+on:
+  push:
+    branches: [ main, master, feature/* ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-test-quality:
+    runs-on: ubuntu-latest
+
+    env:
+      JAVA_VERSION: '25'
+
+    steps:
+      # 1. Traer código
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 2. Instalar Java (con caché)
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: ${{ env.JAVA_VERSION }}
+          cache: 'maven'
+
+      # 3. Herramientas XML
+      - name: Install XML tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libxml2-utils
+
+      # 4. Compilar sin tests
+      - name: Maven build
+        run: mvn -B -DskipTests package
+
+      # 5. Checkstyle
+      - name: Checkstyle
+        id: checkstyle
+        run: mvn -B checkstyle:check
+        continue-on-error: true
+
+      # 6. Tests
+      - name: Run tests
+        id: tests
+        run: mvn -B test
+
+      # 7. Upload reports
+      - name: Upload test reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reports
+          path: |
+            target/surefire-reports
+            target/checkstyle-result.xml
+          if-no-files-found: ignore
+
+      # 8. RESUMEN FINAL usando STEP SUMMARY
+      - name: Generate GitHub Summary
+        if: always()
+        run: |
+          echo "# Resumen de la ejecución CI" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- Commit: \`${{ github.sha }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "- Autor: \`${{ github.actor }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "- Workflow run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          echo "## Estado de cada etapa" >> $GITHUB_STEP_SUMMARY
+          echo "- Tests: **${{ steps.tests.outcome }}**" >> $GITHUB_STEP_SUMMARY
+          echo "- Checkstyle: **${{ steps.checkstyle.outcome }}**" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          echo "## Detalle de Tests" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          # Recorrer XML de surefire
+          for FILE in target/surefire-reports/TEST-*.xml; do
+            CLASSNAME=$(xmllint --xpath "string(/testsuite/@name)" "$FILE")
+            echo "### Clase: \`$CLASSNAME\`" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+
+            TESTCOUNT=$(xmllint --xpath "count(/testsuite/testcase)" "$FILE")
+
+            for (( i=1; i<=TESTCOUNT; i++ )); do
+              NAME=$(xmllint --xpath "string(/testsuite/testcase[$i]/@name)" "$FILE")
+              FAIL=$(xmllint --xpath "count(/testsuite/testcase[$i]/failure | /testsuite/testcase[$i]/error)" "$FILE")
+              FAILMSG=$(xmllint --xpath "string(/testsuite/testcase[$i]/failure/@message | /testsuite/testcase[$i]/error/@message)" "$FILE")
+              FAILDETAIL=$(xmllint --xpath "string(/testsuite/testcase[$i]/failure | /testsuite/testcase[$i]/error)" "$FILE")
+
+              if [ "$FAIL" -gt 0 ]; then
+                echo "- **$NAME** ❌ " >> $GITHUB_STEP_SUMMARY
+                echo "  - Motivo: $FAILMSG" >> $GITHUB_STEP_SUMMARY
+                echo "  - Detalle:" >> $GITHUB_STEP_SUMMARY
+                echo '```' >> $GITHUB_STEP_SUMMARY
+                echo "$FAILDETAIL" >> $GITHUB_STEP_SUMMARY
+                echo '```' >> $GITHUB_STEP_SUMMARY
+              else
+                echo "- **$NAME** ✅ " >> $GITHUB_STEP_SUMMARY
+              fi
+
+              echo "" >> $GITHUB_STEP_SUMMARY
+            done
+          done
+
+          echo "## Detalle de Checkstyle" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          FILE="target/checkstyle-result.xml"
+          if [ ! -f "$FILE" ]; then
+            echo "_No se encontró checkstyle-result.xml_" >> $GITHUB_STEP_SUMMARY
+            exit 0
+          fi
+
+          FILECOUNT=$(xmllint --xpath "count(/checkstyle/file)" "$FILE")
+
+          if [ "$FILECOUNT" -eq 0 ]; then
+            echo "Checkstyle no reportó errores.👌" >> $GITHUB_STEP_SUMMARY
+            exit 0
+          fi
+
+          for (( i=1; i<=FILECOUNT; i++ )); do
+            FNAME=$(xmllint --xpath "string(/checkstyle/file[$i]/@name)" "$FILE")
+            ERRCOUNT=$(xmllint --xpath "count(/checkstyle/file[$i]/error)" "$FILE")
+
+            if [ "$ERRCOUNT" -eq 0 ]; then
+              continue
+            fi
+
+            echo "### Archivo: \`$FNAME\`" >> $GITHUB_STEP_SUMMARY
+
+            for (( j=1; j<=ERRCOUNT; j++ )); do
+              LINE=$(xmllint  --xpath "string(/checkstyle/file[$i]/error[$j]/@line)"     "$FILE")
+              COL=$(xmllint   --xpath "string(/checkstyle/file[$i]/error[$j]/@column)"   "$FILE")
+              SEV=$(xmllint   --xpath "string(/checkstyle/file[$i]/error[$j]/@severity)" "$FILE")
+              MSG=$(xmllint   --xpath "string(/checkstyle/file[$i]/error[$j]/@message)"  "$FILE")
+              SRC=$(xmllint   --xpath "string(/checkstyle/file[$i]/error[$j]/@source)"   "$FILE")
+
+              echo "- Línea $LINE, col $COL — **$SEV**" >> $GITHUB_STEP_SUMMARY
+              echo "  - Mensaje: $MSG" >> $GITHUB_STEP_SUMMARY
+              echo "  - Regla: \`$SRC\`" >> $GITHUB_STEP_SUMMARY
+              echo "" >> $GITHUB_STEP_SUMMARY
+            done
+          done
