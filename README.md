@@ -4,7 +4,7 @@ finalidad de poner en práctica la teoria vista en clase.
 
 ---
 
-## <i>Trabajo Práctico 1</i>
+## <i>Trabajo Práctico 3</i>
 
 ### Requisitos:
 - Tener instalado Java 25.
