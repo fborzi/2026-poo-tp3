@@ -21,12 +21,12 @@ public class ContadorTest {
 
     @Test
     void testIniciarEnValorPositivo() {
-        assertEquals(5, contador.inicar(5));
+        assertEquals(5, contador.iniciar(5));
     }
 
     @Test
     void testIniciarEnValorNegativo() {
-        assertEquals(-3, contador.inicar(-3));
+        assertEquals(-3, contador.iniciar(-3));
     }
 
     @Test
