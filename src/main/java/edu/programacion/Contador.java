@@ -14,7 +14,6 @@ public class Contador {
 
     public int iniciar() {
         return iniciar(0);
-
     }
     public int iniciar(int n) {
         setValor(n);
@@ -23,20 +22,18 @@ public class Contador {
 
     public int sumar() {
         return sumar(1);
-
     }
 
-    public int sumar(int n){
+    public int sumar(int n) {
         setValor(getValor() + n);
         return getValor();
     }
 
     public int restar() {
         return restar(1);
-
     }
 
-    public int restar(int n){
+    public int restar(int n) {
         setValor(getValor() - n);
         return getValor();
     }
