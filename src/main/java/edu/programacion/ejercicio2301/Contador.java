@@ -1,4 +1,4 @@
-package edu.programacion.ejercicio2302;
+package edu.programacion.ejercicio2301;
 
 public class Contador {
     private Integer valor;

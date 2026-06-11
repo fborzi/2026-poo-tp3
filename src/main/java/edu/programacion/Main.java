@@ -1,6 +1,6 @@
 package edu.programacion;
 
-import edu.programacion.ejercicio2302.Contador;
+import edu.programacion.ejercicio2301.Contador;
 
 public class Main {
     static void main() {

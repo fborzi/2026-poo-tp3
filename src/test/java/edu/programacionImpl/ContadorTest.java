@@ -1,6 +1,6 @@
 package edu.programacionImpl;
 
-import edu.programacion.ejercicio2302.Contador;
+import edu.programacion.ejercicio2301.Contador;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
