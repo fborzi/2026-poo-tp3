@@ -1,16 +1,18 @@
 package edu.programacion;
 
 import edu.programacion.ejercicio2301.Contador;
+import edu.programacion.ejercicio2302.AireAcondicionado;
 
 public class Main {
     static void main() {
-        Contador contador = new Contador(0);
-        System.out.println(contador.iniciar());
-        System.out.println(contador.iniciar(5));
-        System.out.println(contador.suma());
-        System.out.println(contador.suma(3));
-        System.out.println(contador.resta());
-        System.out.println(contador.resta(3));
+        AireAcondicionado Aire = new AireAcondicionado(10,15,5,false,false);
+        System.out.println("El aire esta encendido: " + Aire.encender());
+        System.out.println("El aire esta encendido: " + Aire.apagar());
+        System.out.println("la temperatura es " + Aire.subirTemp());
+        System.out.println("la temperatura es " + Aire.subirTemp());
+        System.out.println("la temperatura es " + Aire.bajarTemp());
+        System.out.println("modo calor: " + Aire.cambiarModo());
+        System.out.println("modo calor: " + Aire.cambiarModo());
     }
 }
 
