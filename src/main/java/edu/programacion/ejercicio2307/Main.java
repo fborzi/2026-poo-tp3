@@ -1,24 +1,20 @@
 package edu.programacion.ejercicio2307;
 
-import edu.programacion.ejercicio2307.Criolla;
-import edu.programacion.ejercicio2307.Acustica;
-import edu.programacion.ejercicio2307.Electrica;
-
 public class Main {
 
     public static void main(String[] args) {
         // Guitarra guitarra = new Guitarra();
-        Criolla criolla = new Criolla();
+        GuitarraCriolla criolla = new GuitarraCriolla();
         criolla.setFabricante("Yamaha");
         criolla.setModelo("C40");
         criolla.setPrecio(150000);
 
-        Acustica acustica = new Acustica();
+        GuitarraAcustica acustica = new GuitarraAcustica();
         acustica.setFabricante("Fender");
         acustica.setModelo("CD-60");
         acustica.setPrecio(250000);
 
-        Electrica electrica = new Electrica();
+        GuitarraElectrica electrica = new GuitarraElectrica();
         electrica.setFabricante("Gibson");
         electrica.setModelo("Les Paul");
         electrica.setPrecio(1200000);

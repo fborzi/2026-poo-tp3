@@ -1,15 +1,14 @@
 package edu.programacion.ejercicio2301;
 
-import edu.programacion.ejercicio2301.Contador;
 import edu.programacion.ejercicio2302.AireAcondicionado;
 import edu.programacion.ejercicio2303.Punto;
 import edu.programacion.ejercicio2304.Circulo;
 import edu.programacion.ejercicio2306.Cita;
 import edu.programacion.ejercicio2306.Lugar;
 import edu.programacion.ejercicio2306.Persona;
-import edu.programacion.ejercicio2307.Acustica;
-import edu.programacion.ejercicio2307.Criolla;
-import edu.programacion.ejercicio2307.Electrica;
+import edu.programacion.ejercicio2307.GuitarraAcustica;
+import edu.programacion.ejercicio2307.GuitarraCriolla;
+import edu.programacion.ejercicio2307.GuitarraElectrica;
 
 public class Main {
 
@@ -82,8 +81,8 @@ public class Main {
 
         System.out.println(
                 "P1 luego de sumarValor: (" +
-                p1.getX() + ", " +
-                p1.getY() + ")"
+                p1.getValorX() + ", " +
+                p1.getValorY() + ")"
                 );
 
     // Sumar las coordenadas de p2 a p1
@@ -91,8 +90,8 @@ public class Main {
 
         System.out.println(
                 "P1 luego de sumarPunto: (" +
-                p1.getX() + ", " +
-                p1.getY() + ")"
+                p1.getValorX() + ", " +
+                p1.getValorY() + ")"
                 );
         System.out.println("============================================");
 
@@ -114,9 +113,9 @@ public class Main {
 
         System.out.println(
                 "Nuevo centro: (" +
-                        circulo.getCentro().getX() +
+                        circulo.getCentro().getValorX() +
                         ", " +
-                        circulo.getCentro().getY() +
+                        circulo.getCentro().getValorY() +
                         ")"
         );
         System.out.println("============================================");
@@ -144,17 +143,17 @@ public class Main {
         System.out.println("============================================");
 
         // Guitarra guitarra = new Guitarra();
-        Criolla criolla = new Criolla();
+        GuitarraCriolla criolla = new GuitarraCriolla();
         criolla.setFabricante("Yamaha");
         criolla.setModelo("C40");
         criolla.setPrecio(150000);
 
-        Acustica acustica = new Acustica();
+        GuitarraAcustica acustica = new GuitarraAcustica();
         acustica.setFabricante("Fender");
         acustica.setModelo("CD-60");
         acustica.setPrecio(250000);
 
-        Electrica electrica = new Electrica();
+        GuitarraElectrica electrica = new GuitarraElectrica();
         electrica.setFabricante("Gibson");
         electrica.setModelo("Les Paul");
         electrica.setPrecio(1200000);

@@ -47,8 +47,8 @@ public class Circulo {
     // Traslada el centro del círculo
     public void trasladar(Double x, Double y) {
 
-        getCentro().setX(getCentro().getX() + x);
+        getCentro().setValorX(getCentro().getValorX() + x);
 
-        getCentro().setY(getCentro().getY() + y);
+        getCentro().setValorY(getCentro().getValorY() + y);
     }
 }

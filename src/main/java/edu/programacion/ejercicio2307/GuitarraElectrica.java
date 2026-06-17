@@ -1,6 +1,6 @@
 package edu.programacion.ejercicio2307;
 
-public class Electrica extends Guitarra {
+public class GuitarraElectrica extends Guitarra {
 
     private String tipoMicrofonos;
     private Integer cantidadMicrofonos;
@@ -11,7 +11,7 @@ public class Electrica extends Guitarra {
     private String tipoSalida;
     private String materialPartesMetalicas;
 
-    public Electrica() {
+    public GuitarraElectrica() {
     }
 
     public String getTipoMicrofonos() {

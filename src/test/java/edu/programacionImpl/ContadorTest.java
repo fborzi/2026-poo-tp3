@@ -1,5 +1,6 @@
 package edu.programacionImpl;
 
+import edu.programacion.ejercicio2301.Contador;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -61,7 +62,7 @@ public class ContadorTest {
 
     @Test
     void testRestarN() {
-        contador.inicar(5);
+        contador.iniciar(5);
         assertEquals(2, contador.restar(3));
     }
 

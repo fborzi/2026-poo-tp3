@@ -1,12 +1,12 @@
 package edu.programacion.ejercicio2307;
 
-public class Criolla extends Guitarra {
+public class GuitarraCriolla extends Guitarra {
 
     private Boolean cajaDeResonancia;
     private Double anchoDeMastil;
     private Boolean sonidoSuave;
 
-    public Criolla() {
+    public GuitarraCriolla() {
     }
 
     public Boolean getCajaDeResonancia() {

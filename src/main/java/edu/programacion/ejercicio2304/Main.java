@@ -25,9 +25,9 @@ public class Main {
 
         System.out.println(
                 "Nuevo centro: (" +
-                        circulo.getCentro().getX() +
+                        circulo.getCentro().getValorX() +
                         ", " +
-                        circulo.getCentro().getY() +
+                        circulo.getCentro().getValorY() +
                         ")"
         );
     }

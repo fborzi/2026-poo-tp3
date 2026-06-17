@@ -1,12 +1,12 @@
 package edu.programacion.ejercicio2307;
 
-public class Acustica extends Guitarra {
+public class GuitarraAcustica extends Guitarra {
 
     private Boolean cajaResonancia;
     private Double tamanoCaja;
     private String formaCuerpo;
 
-    public Acustica() {
+    public GuitarraAcustica() {
     }
 
     public Boolean getCajaResonancia() {

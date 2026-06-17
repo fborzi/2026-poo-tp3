@@ -25,8 +25,8 @@ public class Main {
 
         System.out.println(
                 "P1 luego de sumarValor: (" +
-                        p1.getX() + ", " +
-                        p1.getY() + ")"
+                        p1.getValorX() + ", " +
+                        p1.getValorY() + ")"
         );
 
         // Sumar las coordenadas de p2 a p1
@@ -34,8 +34,8 @@ public class Main {
 
         System.out.println(
                 "P1 luego de sumarPunto: (" +
-                        p1.getX() + ", " +
-                        p1.getY() + ")"
+                        p1.getValorX() + ", " +
+                        p1.getValorY() + ")"
         );
     }
 }

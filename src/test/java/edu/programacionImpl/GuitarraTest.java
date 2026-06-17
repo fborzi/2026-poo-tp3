@@ -1,5 +1,6 @@
 package edu.programacionImpl;
 
+import edu.programacion.ejercicio2307.Guitarra;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Modifier;
