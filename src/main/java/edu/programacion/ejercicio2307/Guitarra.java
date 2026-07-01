@@ -1,5 +1,16 @@
 package edu.programacion.ejercicio2307;
 
+/**
+ * Clase abstracta que representa una guitarra en general.
+ * Sirve como base para distintos tipos de guitarras como
+ * guitarra eléctrica, criolla o acústica.
+ * 
+ * No puede ser instanciada directamente, solo extendida por clases hijas.
+ * 
+ * Contiene los atributos comunes de cualquier guitarra como
+ * precio, fabricante, modelo, materiales y características técnicas.
+ */
+
 public abstract class Guitarra {
 
     private Integer precio;

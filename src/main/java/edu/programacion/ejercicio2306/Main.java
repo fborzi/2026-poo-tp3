@@ -1,8 +1,5 @@
 package edu.programacion.ejercicio2306;
 
-import edu.programacion.ejercicio2306.Cita;
-import edu.programacion.ejercicio2306.Lugar;
-import edu.programacion.ejercicio2306.Persona;
 
 public class Main {
 
@@ -13,8 +10,8 @@ public class Main {
         persona.setTelefono("02475-414016");
 
         Lugar lugar = new Lugar();
-        lugar.setNombre("Cafeteria Centro");
-        lugar.setDireccion("Av. Principal 123");
+        lugar.setNombre("Cafeteria Dominga");
+        lugar.setDireccion("Av. 25 de Mayo");
 
         Cita cita = new Cita();
         cita.setFecha("15/06/2026");

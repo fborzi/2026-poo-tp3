@@ -1,5 +1,17 @@
 package edu.programacion.ejercicio2302;
 
+/**
+ * Se modela un aire acondicionado con atributos que representan sus
+ * características y estado de funcionamiento.
+ *
+ * Permite encender y apagar el equipo, modificar la temperatura
+ * dentro de límites establecidos, cambiar el modo de funcionamiento,
+ * ajustar la velocidad del ventilador y administrar el temporizador.
+ *
+ * Sus atributos son privados y su acceso se realiza a través de los
+ * métodos definidos en la clase.
+ */
+
 public class AireAcondicionado {
 
     // ATRIBUTOS

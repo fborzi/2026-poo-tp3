@@ -1,5 +1,15 @@
 package edu.programacion.ejercicio2307;
 
+/**
+ * Clase que representa una guitarra criolla dentro del modelo de instrumentos musicales.
+ * 
+ * Hereda de la clase abstracta Guitarra, reutilizando atributos comunes como fabricante,
+ * modelo, materiales y precio, y agrega características específicas del instrumento criollo.
+ * 
+ * Es una especialización dentro de la jerarquía de guitarras orientada a sonidos más suaves
+ * y sin necesidad de amplificación eléctrica.
+ */
+
 public class GuitarraCriolla extends Guitarra {
 
     private Boolean cajaDeResonancia;

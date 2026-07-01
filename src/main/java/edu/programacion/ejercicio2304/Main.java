@@ -1,7 +1,6 @@
 package edu.programacion.ejercicio2304;
 
 import edu.programacion.ejercicio2303.Punto;
-import edu.programacion.ejercicio2304.Circulo;
 
 public class Main {
 

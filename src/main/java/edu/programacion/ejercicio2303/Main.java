@@ -1,7 +1,5 @@
 package edu.programacion.ejercicio2303;
 
-import edu.programacion.ejercicio2303.Punto;
-
 public class Main {
 
     public static void main(String[] args) {

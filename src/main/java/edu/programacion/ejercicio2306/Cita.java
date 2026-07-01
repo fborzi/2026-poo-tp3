@@ -1,5 +1,16 @@
 package edu.programacion.ejercicio2306;
 
+/**
+ * Modela una cita compuesta por una fecha, un nivel de importancia,
+ * una persona de contacto y un lugar determinado.
+ *
+ * Permite representar reuniones o eventos asignando una prioridad
+ * comprendida entre 1 y 5, siendo 5 el nivel de mayor importancia.
+ *
+ * La clase establece una relación con objetos de tipo Persona y Lugar,
+ * integrando la información necesaria para describir una cita completa.
+ */
+
 public class Cita {
 
     private String fecha;

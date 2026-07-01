@@ -1,5 +1,12 @@
 package edu.programacion.ejercicio2307;
 
+/**
+ * Clase que representa una guitarra eléctrica dentro del modelo de guitarras.
+ * 
+ * Extiende de la clase Guitarra y agrega atributos específicos relacionados
+ * con el sistema de captación de sonido, controles y componentes electrónicos.
+ */
+
 public class GuitarraElectrica extends Guitarra {
 
     private String tipoMicrofonos;
