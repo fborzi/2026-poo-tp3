@@ -1,4 +1,4 @@
-package edu.programacion;
+package edu.programacionImpl;
 
 public class AireAcondicionado {
     private boolean estaPrendido;

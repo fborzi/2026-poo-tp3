@@ -1,4 +1,4 @@
-package edu.programacion;
+package edu.programacionImpl;
 
 public class Circulo {
     private Punto centro;
