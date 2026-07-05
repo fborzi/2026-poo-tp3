@@ -1,4 +1,4 @@
-package edu.programacionImpl;
+package EJERCICIO2003;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -43,7 +43,7 @@ public class PuntoTest {
 
     @Test
     void testSumarValorRetornaElMismoPunto() {
-        assertSame(punto, punto.sumarValor(3));
+        Assertions.assertSame(punto, punto.sumarValor(3));
     }
 
     @Test
@@ -69,7 +69,7 @@ public class PuntoTest {
         Punto otro = new Punto();
         otro.setValorX(0);
         otro.setValorY(0);
-        assertSame(punto, punto.sumarPunto(otro));
+        Assertions.assertSame(punto, punto.sumarPunto(otro));
     }
 
     @Test

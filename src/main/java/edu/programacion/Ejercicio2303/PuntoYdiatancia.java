@@ -1,4 +1,4 @@
-package edu.programacion.ejercicio2302;
+package edu.programacion.Ejercicio2303;
 
 public record PuntoYdiatancia() {public class Punto {
 

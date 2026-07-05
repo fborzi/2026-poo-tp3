@@ -1,15 +1,15 @@
-package edu.programacionImpl;
+package edu.programacion.Ejercicio2304;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CirculoTest {
+public class Circulo {
 
     private Circulo circulo;
 
-    @BeforeEach
+    @BeforeEachgit
     void setUp() {
         circulo = new Circulo();
         circulo.setRadio(5.0);

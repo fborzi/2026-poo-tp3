@@ -1,11 +1,12 @@
-package edu.programacion.ejercicio2302;
+packageedu.programacion.ejercicio2302;
 
 public class AireAcondicionado {
 
-    // Atributos
+    //Atributos
     private String marca;
     private int temperatura;
-    private boolean encendido;
+    private booleanencendido;
+    private booleanapagado;
     private String modo;
 
     // Constructor
