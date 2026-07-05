@@ -3,7 +3,7 @@ package edu.programacion.ejercicio2304;
 /**
  * Representa un punto en el plano cartesiano.
  */
-public class Punto {
+    class Punto {
 
     private double x;
     private double y;
@@ -52,7 +52,7 @@ public class Punto {
 /**
  * Representa un círculo mediante su centro y su radio.
  */
-public class Circulo {
+    class Circulo {
 
     /**
      * Centro del círculo.

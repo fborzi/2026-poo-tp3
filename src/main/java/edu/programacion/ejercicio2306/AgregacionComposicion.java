@@ -3,7 +3,7 @@ package edu.programacion.ejercicio2306;
 /**
  * Representa una cita entre una persona y un lugar.
  */
-public class Cita {
+    class Cita {
 
     /**
      * Persona que asiste.
