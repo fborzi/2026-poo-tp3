@@ -1,91 +1,77 @@
 package edu.programacion.ejercicio2301;
 
 /**
- * Clase que modela un contador simple.
- * Permite iniciar, incrementar y decrementar
- * un valor mediante sobrecarga de métodos.
+ * Representa un contador que permite incrementar,
+ * decrementar e inicializar su valor.
  */
 public class Contador {
 
-    private Integer valor;
+    /**
+     * Valor actual del contador.
+     */
+    private int valor;
 
     /**
-     * Inicializa el contador en 0.
-     *
-     * @return valor actual del contador
+     * Crea un contador inicializado en 0.
      */
-    public Integer iniciar(){
-        setValor(0);
-        return getValor();
+    public Contador() {
+        valor = 0;
     }
 
     /**
-     * Inicializa el contador con un valor dado.
-     * @param n valor inicial del contador.
-     * @return valor actual del contador.
+     * Inicializa el contador en 0.
      */
-    public Integer iniciar(Integer n){
-        setValor(n);
-        return getValor();
+    public void iniciar() {
+        valor = 0;
+    }
+
+    /**
+     * Inicializa el contador con el valor indicado.
+     *
+     * @param n Valor inicial.
+     */
+    public void iniciar(int n) {
+        valor = n;
     }
 
     /**
      * Incrementa el contador en una unidad.
-     *
-     * @return valor actualizado del contador.
      */
-    public Integer sumar(){
-        setValor(getValor()+ 1);
-        return getValor();
+    public void sumar() {
+        valor++;
     }
 
     /**
      * Incrementa el contador en la cantidad indicada.
      *
-     * @param n cantidad a sumar.
-     * @return valor actualizado del contador.
+     * @param n Cantidad a sumar.
      */
-    public Integer sumar(Integer n){
-        setValor(getValor () + n);
-        return getValor();
+    public void sumar(int n) {
+        valor += n;
     }
 
     /**
      * Decrementa el contador en una unidad.
-     *
-     * @return valor actualizado del contados.
      */
-    public Integer restar(){
-        setValor(getValor()- 1);
-        return getValor();
+    public void restar() {
+        valor--;
     }
 
     /**
      * Decrementa el contador en la cantidad indicada.
      *
-     * @param n cantidad a restar.
-     * @return valor actualizado del contador.
+     * @param n Cantidad a restar.
      */
-    public Integer restar(Integer n){
-        setValor(getValor() - n);
-        return getValor();
+    public void restar(int n) {
+        valor -= n;
     }
 
     /**
-     * Obtiene el valor actual del contador.
+     * Devuelve el valor actual del contador.
      *
-     * @return valor almacenado en el contador
+     * @return Valor del contador.
      */
-    public Integer getValor() {
-        return this.valor;
-    }
-
-    /**
-     * Modifica el valor del contador.
-     *
-     * @param valor nuevo valor a asignar.
-     */
-    public void setValor(Integer valor){
-        this.valor = valor;
+    public int getValor() {
+        return valor;
     }
 }
