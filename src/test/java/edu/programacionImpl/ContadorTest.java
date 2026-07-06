@@ -62,7 +62,7 @@ public class ContadorTest {
 
     @Test
     void testRestarN() {
-        contador.inicar(5);
+        contador.iniciar(5);
         assertEquals(2, contador.restar(3));
     }
 

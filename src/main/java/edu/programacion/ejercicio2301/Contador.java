@@ -11,12 +11,10 @@ public class Contador {
         setValor(n);
         return getValor();
     }
-
     public Integer sumar(){
         setValor(getValor()+1);
         return getValor();
     }
-
     public Integer restar(){
         setValor(getValor() - 1);
         return getValor();

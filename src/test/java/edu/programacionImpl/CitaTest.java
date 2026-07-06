@@ -1,5 +1,8 @@
 package edu.programacionImpl;
 
+import edu.programacion.ejercicio2306.Cita;
+import edu.programacion.ejercicio2306.Lugar;
+import edu.programacion.ejercicio2306.Persona;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
