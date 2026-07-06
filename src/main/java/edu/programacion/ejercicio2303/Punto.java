@@ -31,8 +31,3 @@ public class Punto {
     public double getX() {
         return x;
     }
-
-    public double getY() {
-        return y;
-    }
-}
